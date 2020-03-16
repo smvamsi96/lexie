@@ -9,16 +9,15 @@ class FileClass(models.Model):
         verbose_name_plural = 'FileClasses'
 
     def __str__(self):
-        return f"Name: { self.class_name }"
+        return f"{ self.class_name }"
 
 
 class FileItem(models.Model):
     file_name = models.CharField(max_length=60, blank=False, unique=True)
     file_class = models.ForeignKey(FileClass, on_delete=models.CASCADE)
-    file_date = models.DateTimeField(auto_now=True)
 
     class Meta: 
         verbose_name_plural = 'FileItems'
 
     def __str__(self):
-        return f"Name: { self.file_name } in Class { self.file_class }"
+        return f"{ self.file_name } in { self.file_class }"

@@ -1,0 +1,22 @@
+{% extends 'grey/default.html' %}
+{% load static %}
+
+{% block title_block %}
+	{{ app_name }} - Files in {{ file_class_item.class_name }}
+{% endblock %}
+
+{% block heading_block %}
+	{{ class_of_file.class_name }} files
+{% endblock %}
+
+{% block content_block %}
+	{% if files %}
+		{% for file in files %}
+			<ul>
+				<li><a href="{% get_static_prefix %}/grey/{{ file.file_name }}">{{ file.file_name }}</a></li>
+			</ul>
+		{% endfor %}
+	{% else %}
+		There are no files here!
+	{% endif %}
+{% endblock %}
