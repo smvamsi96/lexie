@@ -1,0 +1,4 @@
+Place All Your Files to be Served here in this folder.
+Delete this text file.
+A cool trick is to place all your files as symbolic links in this folder and keep them organized somewhere outside(in your home folder or something).
+This app will organize files by itself by filetype.
