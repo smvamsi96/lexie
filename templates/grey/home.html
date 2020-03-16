@@ -1,0 +1,14 @@
+{% extends 'grey/default.html' %}
+{% load static %}
+
+{% block content_block %}
+	All Categories...
+	<ul>
+		{% if file_classes %}
+			{% for file_class_item in file_classes %}
+				<li><a href="/file_class/{{ file_class_item.id }}">{{ file_class_item.class_name }}</a></li>
+			{% endfor %}
+		{% else %}
+			<strong>There are No Categories Currently</strong>
+		{% endif %}
+{% endblock %}
