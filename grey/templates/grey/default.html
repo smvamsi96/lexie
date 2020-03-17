@@ -18,11 +18,14 @@
 				Welcome to {{ app_name }}
 			{% endblock %}
 		</h1>
+			<a href="{% url 'grey_index' %}">HomePage</a>
 
 		<div>
 			{% block content_block %}
 				Created by {{ creator }}
 			{% endblock %}
 		</div>
+
+		<a href="{% url 'upload_file' %}">Add a File to {{ app_name }}</a>
 	</body>
 </html>

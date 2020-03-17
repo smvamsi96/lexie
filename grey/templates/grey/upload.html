@@ -1,0 +1,24 @@
+{% extends 'grey/default.html' %}
+{% load static %}
+
+{% block title_block %}
+	{{ app_name }} - File Upload
+{% endblock %}
+
+{% block heading_block %}
+	Upload File to {{ app_name }}
+{% endblock %}
+
+{% block content_block %}
+	<div>
+		<form id="file_upload_form" method="post" action="{% url 'upload_file' %}" enctype="multipart/form-data">
+			{% csrf_token %}
+			{% for field in form %}
+				{{ field.errors_messages }}
+				{{ field.help_text }}
+				{{ field }}
+			{% endfor %}
+		<input type="submit" name="submit" value="UploadFile" />
+		</form>
+	</div>
+{% endblock %}

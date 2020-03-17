@@ -21,3 +21,5 @@ class FileItem(models.Model):
 
     def __str__(self):
         return f"{ self.file_name } in { self.file_class }"
+
+
