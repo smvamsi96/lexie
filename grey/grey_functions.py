@@ -33,9 +33,9 @@ def det_file_type(a_file):
 
     
 def symlink_the_upload_directory():
-    """ Creates symlinks of files from Public directory """
+    """ Creates symlinks of files from the static directory """
     print("executing symlink_the_upload_directory")
-    origin_path = '/Users/smvamsi/Public/'
+    origin_path = '/Users/smvamsi/static/grey/'
     destnation_path = '/Users/smvamsi/Code/lexie/grey/static/grey/'
     for uploaded_file in os.listdir(origin_path):
         src = origin_path + uploaded_file
@@ -105,7 +105,7 @@ def save_uploaded_file(uploaded_file, uploaded_file_name):
     """ Writes uploaded_file to disk """
     print('executing save_uploaded_file')
     # default_path is where uploaded_file is saved
-    default_path = '/Users/smvamsi/Public/'
+    default_path = '/Users/smvamsi/static/grey/'
     new_file = default_path + uploaded_file_name
     with open(new_file, 'wb+') as new_file:
         for chunk in uploaded_file.chunks():

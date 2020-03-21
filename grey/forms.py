@@ -5,7 +5,7 @@ from django import forms
 
 # This form has only one field. That's a field for uploading files.
 class UploadFileForm(forms.Form):
-    the_file = forms.FileField(label='Select a File', help_text='max. 50MB')
+    the_file = forms.FileField(label='Select a File', help_text='max. 3GB')
     class Meta:
         fields = ('the_file',)
 
