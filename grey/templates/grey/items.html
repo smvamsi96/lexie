@@ -13,7 +13,7 @@
 	{% if files %}
 		{% for file in files %}
 			<ul>
-				<li><a href="{% get_static_prefix %}/grey/{{ file.file_name }}">{{ file.file_name }}</a></li>
+				<li><a href="{% get_static_prefix %}grey/{{ file.file_name }}">{{ file.file_name }}</a></li>
 			</ul>
 		{% endfor %}
 	{% else %}
