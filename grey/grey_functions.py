@@ -5,6 +5,7 @@ import django
 django.setup()
 from grey.models import FileClass, FileItem
 
+the_static_path='/Users/smvamsi/static/grey/'
 
 def det_file_type(a_file):
     print('executing det_file_type')
@@ -35,10 +36,10 @@ def det_file_type(a_file):
 def symlink_the_upload_directory():
     """ Creates symlinks of files from the static directory """
     print("executing symlink_the_upload_directory")
-    origin_path = '/Users/smvamsi/static/grey/'
+#   origin_path = '/Users/smvamsi/static/grey/'
     destnation_path = '/Users/smvamsi/Code/lexie/grey/static/grey/'
-    for uploaded_file in os.listdir(origin_path):
-        src = origin_path + uploaded_file
+    for uploaded_file in os.listdir(the_static_path):
+        src = the_static_path + uploaded_file
         dst = destnation_path + uploaded_file
         try:
             os.symlink(src, dst)
@@ -49,7 +50,7 @@ def symlink_the_upload_directory():
 def index_static_files():
     """ indexes and adds symlinks of uploaded files """
     print("executing index_static_files")
-    static_path = '/Users/smvamsi/Code/lexie/grey/static/grey/'
+    django_symlink_path = '/Users/smvamsi/Code/lexie/grey/static/grey/'
     pdf_items = []
     image_items = []
     video_items = []
@@ -57,9 +58,9 @@ def index_static_files():
     mp3_items = []
     txt_items = []
     symlink_the_upload_directory()
-    items = os.listdir(static_path)
+    items = os.listdir(django_symlink_path)
     for item in items:
-        ext = det_file_type(static_path + item)
+        ext = det_file_type(django_symlink_path + item)
         if ext == 1:
             pdf_items.append(item)
         elif ext == 2: 
@@ -104,9 +105,9 @@ def add_file_item(name, class_of_file):
 def save_uploaded_file(uploaded_file, uploaded_file_name):
     """ Writes uploaded_file to disk """
     print('executing save_uploaded_file')
-    # default_path is where uploaded_file is saved
-    default_path = '/Users/smvamsi/static/grey/'
-    new_file = default_path + uploaded_file_name
+    # the_static_path is where uploaded_file is saved
+#   default_path = '/Users/smvamsi/static/grey/'
+    new_file = the_static_path + uploaded_file_name
     with open(new_file, 'wb+') as new_file:
         for chunk in uploaded_file.chunks():
             new_file.write(chunk)
