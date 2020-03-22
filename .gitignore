@@ -3,12 +3,4 @@ db.sqlite3
 .DS_Store
 *.swp
 __pycache__
-*.mp4
-*.png
-*.jpg
-*.mkv
-*.epub
-*.pdf
-*.mp3
-*.heic
 grey/static/grey/*
