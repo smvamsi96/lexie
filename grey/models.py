@@ -21,6 +21,9 @@ class FileItem(models.Model):
     file_name = models.CharField(max_length=60, blank=False, unique=True)
 # A ForeignKey defines OneToMany Relationship between tables.
     file_class = models.ForeignKey(FileClass, on_delete=models.CASCADE)
+    file_date = models.CharField(max_length=12, blank=True, unique=False)
+    file_time = models.CharField(max_length=6, blank=True, unique=False)
+    file_size = models.CharField(max_length=10, blank=True)
 # This Meta Class defines the plural for the model.
     class Meta: 
         verbose_name_plural = 'FileItems'

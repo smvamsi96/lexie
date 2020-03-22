@@ -31,7 +31,7 @@ def upload_file(request):
         if form.is_valid():
             name_of_the_uploaded_file = request.FILES['the_file'].name
             g.save_uploaded_file(request.FILES['the_file'], name_of_the_uploaded_file)
-            g.index_static_files()
+            g.update_database()
             local_context_dictionary = {'message': f"The File {name_of_the_uploaded_file} Uploaded Successfully",} 
             local_context_dictionary.update(global_context_dictionary)
             return render(request, 'grey/success.html', context=local_context_dictionary)

@@ -1,13 +1,24 @@
 {% extends 'grey/default.html' %}
 
 {% block content_block %}
-	All Categories...
-	<ul>
-		{% if all_file_classes %}
-			{% for file_class in all_file_classes %}
-				<li><a href="/file_class/{{ file_class.id }}">{{ file_class.class_name }}</a></li>
-			{% endfor %}
-		{% else %}
+	<table class="table table-sm table-hover table-dark">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">FileClass</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% if all_file_classes %}
+				{% for file_class in all_file_classes %}
+					<tr>
+						<th scope="row">{{ forloop.counter }}</th>
+						<td><a href="/file_class/{{ file_class.id }}">{{ file_class.class_name }}</a></td>
+					</tr>
+				{% endfor %}
+			{% else %}
 			<strong>There are No Categories Currently</strong>
-		{% endif %}
+			{% endif %}
+		</tbody>
+	</table>
 {% endblock %}
