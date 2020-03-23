@@ -1,23 +1,26 @@
 {% extends 'grey/default.html' %}
+{% load static %}
 
 {% block content_block %}
-	<table class="table table-sm table-hover table-dark">
+	<table class="table table-hover table-dark">
 		<thead>
 			<tr>
 				<th scope="col">#</th>
 				<th scope="col">FileClass</th>
+				<th scope="col">FileCount</th>
 			</tr>
 		</thead>
 		<tbody>
-			{% if all_file_classes %}
-				{% for file_class in all_file_classes %}
-					<tr>
-						<th scope="row">{{ forloop.counter }}</th>
-						<td><a href="/file_class/{{ file_class.id }}">{{ file_class.class_name }}</a></td>
-					</tr>
+			{% if the_list %}
+				{% for file_class, c in the_list %}
+						<tr>
+							<td scope="row">{{ forloop.counter }}</th>
+							<td><a href="/file_class/{{ file_class.id }}"><button type="button" class="btn btn-primary ">{{ file_class.class_name }}</button></a></td>
+							<td>{{ c }}</td>
+						</tr>
 				{% endfor %}
 			{% else %}
-			<strong>There are No Categories Currently</strong>
+				<strong>There are No Categories Currently</strong>
 			{% endif %}
 		</tbody>
 	</table>

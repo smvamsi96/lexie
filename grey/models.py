@@ -13,7 +13,7 @@ class FileClass(models.Model):
         verbose_name_plural = 'FileClasses'
 # A __str__ method defines how an object is printed.
     def __str__(self):
-        return f"{ self.class_name }"
+        return f"{ self.class_name } str_method"
 
 
 class FileItem(models.Model):
@@ -29,6 +29,6 @@ class FileItem(models.Model):
         verbose_name_plural = 'FileItems'
 # A __str__ method defines how an object is printed.
     def __str__(self):
-        return f"{ self.file_name } in { self.file_class }"
+        return f"{ self.file_name } in { self.file_class } str_method"
 
 

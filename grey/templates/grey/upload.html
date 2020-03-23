@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content_block %}
-	<div>
+	<div class="mx-auto form-group" style="width: 1000px;">
 		<form id="file_upload_form" method="post" action="{% url 'upload_file' %}" enctype="multipart/form-data">
 			{% csrf_token %}
 			{% for field in form %}
@@ -18,7 +18,22 @@
 				{{ field.help_text }}
 				{{ field }}
 			{% endfor %}
-		<input type="submit" name="submit" value="UploadFile" />
+			<button type="submit" class="btn btn-primary">
+				Upload
+			</button>
 		</form>
 	</div>
 {% endblock %}
+
+
+
+<div class="input-group mb-3">
+<div class="custom-file">
+<input type="file" class="custom-file-input" id="inputGroupFile02">
+<label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+</div>
+<div class="input-group-append">
+<span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+</div>
+</div>
+

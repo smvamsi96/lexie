@@ -10,10 +10,16 @@ import grey_functions as g
 
 # All variables and custom functions here
 
+all_file_classes = FileClass.objects.all()
+
+the_list = []
+for file_class in all_file_classes:
+    new_list = [file_class, FileItem.objects.filter(file_class=file_class).count()]
+    the_list.append(new_list)
 
 
+global_context_dictionary = {'app_name': 'Lexie', 'creator': 'smvamsi96', 'the_list': the_list}
 
-global_context_dictionary = {'app_name': 'Lexie', 'creator': 'smvamsi96', 'all_file_classes': FileClass.objects.all(),}
 
 
 

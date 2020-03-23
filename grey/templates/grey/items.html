@@ -6,33 +6,38 @@
 {% endblock %}
 
 {% block heading_block %}
-	{{ class_of_file.class_name }} files
+	Browse {{ class_of_file.class_name }}
 {% endblock %}
 
 {% block content_block %}
 	{% if files %}
-		<table class="table table-sm table-striped">
-			<thead>
-				<tr>
-					<th scope="col">#</th>
-					<th scope="col">File</th>
-					<th scope="col">Size</th>
-					<th scope="col">Date</th>
-					<th scope="col">Time</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for file in files %}
+		<div class="table-responsive-sm">
+			<table class="table table-striped">
+				<thead>
 					<tr>
-						<th scope="row">{{ forloop.counter }}</th>
-						<td><a href="{% get_static_prefix %}grey/{{ file.file_name }}">{{ file.file_name }}</a></td>
-						<td>{{ file.file_size }}</td>
-						<td>{{ file.file_date }}</td>
-						<td>{{ file.file_time }}</td>
+						<th scope="col">#</th>
+						<th scope="col">File</th>
+						<th scope="col">Size</th>
+						<th scope="col">Date</th>
+						<th scope="col">Time</th>
 					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
+				</thead>
+				<tbody>
+					{% for file in files %}
+						<tr>
+							<th scope="row">{{ forloop.counter }}</th>
+							<td>{{ file.file_name }}</a></td>
+							<td>{{ file.file_size }}</td>
+							<td>{{ file.file_date }}</td>
+							<td>{{ file.file_time }}</td>
+							<td><a href="{% get_static_prefix %}grey/{{ file.file_name }}" download><button type="button" class="btn btn-warning">View</button></a></td>
+							<td><a href="{% get_static_prefix %}grey/{{ file.file_name }}" download><button type="button" class="btn btn-primary">Download</button></a></td>
+							
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
 	{% else %}
 		There are no files here!
 	{% endif %}
