@@ -12,13 +12,8 @@ import grey_functions as g
 
 all_file_classes = FileClass.objects.all()
 
-the_list = []
-for file_class in all_file_classes:
-    new_list = [file_class, FileItem.objects.filter(file_class=file_class).count()]
-    the_list.append(new_list)
 
-
-global_context_dictionary = {'app_name': 'Lexie', 'creator': 'smvamsi96', 'the_list': the_list}
+global_context_dictionary = {'app_name': 'Lexie', 'creator': 'smvamsi96',}
 
 
 
@@ -51,8 +46,15 @@ def upload_file(request):
 
 
 def grey_index(request):
+    the_list = []
+    file_classes = FileClass.objects.all()
+    for file_class in file_classes:
+        new_list = [file_class, FileItem.objects.filter(file_class=file_class).count()]
+        the_list.append(new_list)
+    local_context_dictionary = {'the_list': the_list}
+    local_context_dictionary.update(global_context_dictionary)
     """ Handles the Homepage """
-    return render(request, 'grey/home.html', context=global_context_dictionary)
+    return render(request, 'grey/home.html', context=local_context_dictionary)
 
 
 

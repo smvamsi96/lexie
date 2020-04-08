@@ -12,11 +12,11 @@
 		</thead>
 		<tbody>
 			{% if the_list %}
-				{% for file_class, c in the_list %}
+				{% for file_class, file_count in the_list %}
 						<tr>
 							<td scope="row">{{ forloop.counter }}</th>
 							<td><a href="/file_class/{{ file_class.id }}"><button type="button" class="btn btn-primary ">{{ file_class.class_name }}</button></a></td>
-							<td>{{ c }}</td>
+							<td>{{ file_count }}</td>
 						</tr>
 				{% endfor %}
 			{% else %}
